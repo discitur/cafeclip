@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafetería - Café Especial</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts for typography matching the design -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'coffee-yellow': '#F4B63F',
+                        'coffee-dark': '#1C1917',
+                        'coffee-brown': '#3E2723',
+                        'coffee-red': '#C62828',
+                        'coffee-light': '#FDFBF7'
+                    },
+                    fontFamily: {
+                        'serif': ['"Playfair Display"', 'serif'],
+                        'sans': ['"Poppins"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1C1917; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #F4B63F; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d49a2f; 
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-coffee-dark bg-coffee-yellow">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <span class="font-serif font-bold text-2xl tracking-wider">LOGO</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#inicio" class="text-sm font-semibold hover:text-white transition">Inicio</a>
+                    <a href="#nosotros" class="text-sm font-semibold hover:text-white transition">Nosotros</a>
+                    <a href="#productos" class="text-sm font-semibold hover:text-white transition">Productos</a>
+                    <a href="#contacto" class="text-sm font-semibold hover:text-white transition">Contactar</a>
+                    <button class="text-xl hover:text-white transition"><i class="fas fa-search"></i></button>
+                    <button class="text-xl hover:text-white transition"><i class="fas fa-bars"></i></button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-2xl focus:outline-none">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-coffee-yellow border-t border-yellow-600 shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#inicio" class="block px-3 py-2 text-base font-semibold hover:bg-yellow-600 rounded-md">Inicio</a>
+                <a href="#nosotros" class="block px-3 py-2 text-base font-semibold hover:bg-yellow-600 rounded-md">Nosotros</a>
+                <a href="#productos" class="block px-3 py-2 text-base font-semibold hover:bg-yellow-600 rounded-md">Productos</a>
+                <a href="#contacto" class="block px-3 py-2 text-base font-semibold hover:bg-yellow-600 rounded-md">Contactar</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Inicio Section -->
+    <section id="inicio" class="pt-28 pb-16 md:pt-32 md:pb-24 overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- Text Content -->
+                <div class="z-10">
+                    <h1 class="font-serif text-5xl md:text-7xl font-black leading-tight uppercase mb-4 text-coffee-dark drop-shadow-md">
+                        Special<br>Coffee
+                    </h1>
+                    <p class="text-sm md:text-base mb-8 max-w-md border-l-4 border-coffee-dark pl-4 opacity-90">
+                        El café es un arte aquí, una filosofía tuya y nuestra. Cada taza es un viaje, un momento para saborear la riqueza de la vida.
+                    </p>
+                    <button class="bg-coffee-dark text-coffee-yellow px-8 py-3 font-semibold text-sm tracking-wider uppercase hover:bg-black transition shadow-lg">
+                        Saber Más
+                    </button>
+                </div>
+                
+                <!-- Image Content -->
+                <div class="relative flex justify-center items-center">
+                    <!-- Price Badge -->
+                    <div class="absolute top-10 left-0 md:left-10 bg-coffee-red text-white rounded-full w-24 h-24 flex flex-col justify-center items-center shadow-2xl z-20 transform -rotate-12">
+                        <span class="text-2xl font-bold font-serif">$5<span class="text-sm">.99</span></span>
+                        <span class="text-xs uppercase font-semibold">Only</span>
+                    </div>
+                    
+                    <!-- Decorative Circle behind cup -->
+                    <div class="absolute w-64 h-64 bg-white opacity-20 rounded-full blur-2xl"></div>
+                    
+                    <!-- Main Image (Placeholder with coffee aesthetic) -->
+                    <img src="https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&q=80&w=600" alt="Special Coffee Cup" class="w-full max-w-md object-contain z-10 drop-shadow-2xl rounded-full border-8 border-white/20">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nosotros Section -->
+    <section id="nosotros" class="bg-coffee-dark text-white py-20 relative border-t-8 border-coffee-brown">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                
+                <!-- Image side -->
+                <div class="relative order-2 md:order-1">
+                    <img src="https://images.unsplash.com/photo-1552831388-6a0b3575b32a?auto=format&fit=crop&q=80&w=800" alt="Instant Coffee" class="w-full rounded-lg shadow-2xl opacity-90">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-lg"></div>
+                </div>
+
+                <!-- Text side -->
+                <div class="order-1 md:order-2">
+                    <h4 class="font-serif text-xl mb-2 text-coffee-yellow italic">Quiénes Somos</h4>
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                        Instant <br><span class="text-coffee-yellow">Coffee</span>
+                    </h2>
+                    <div class="bg-coffee-brown text-center py-2 mb-6 rounded shadow-inner uppercase tracking-widest text-sm font-semibold">
+                        Rich Aroma
+                    </div>
+                    <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-6">
+                        Como dedicados creadores de café, seleccionamos meticulosamente los mejores granos tostados para la perfección. Una sinfonía de ricos sabores y aromas que elevan tu experiencia diaria de café. Comienza tu día con el pie derecho.
+                    </p>
+                    <div class="border-t border-gray-600 pt-4">
+                        <p class="text-xs text-gray-400">GOOD DAYS START WITH COFFEE.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Section -->
+    <section id="productos" class="py-20 bg-coffee-yellow relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h3 class="font-serif text-3xl md:text-4xl font-bold uppercase tracking-wider text-coffee-dark border-b-4 border-coffee-dark inline-block pb-2">
+                    Lista de Productos
+                </h3>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Product 1 -->
+                <div class="bg-white rounded-lg p-6 shadow-xl text-center transform transition duration-300 hover:-translate-y-2 border-b-8 border-coffee-brown group">
+                    <div class="h-48 flex justify-center items-center mb-4 relative">
+                        <div class="absolute inset-0 bg-yellow-100 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500"></div>
+                        <img src="https://images.unsplash.com/photo-1514432324607-a2ce7beea848?auto=format&fit=crop&q=80&w=400" alt="Café Espresso" class="h-40 w-40 object-cover rounded-full shadow-md z-10">
+                    </div>
+                    <h4 class="font-serif font-bold text-xl mb-2 text-coffee-dark">Café Espresso</h4>
+                    <p class="text-xs text-gray-600 mb-6 px-2">
+                        Intenso y con cuerpo, perfecto para despertar tus sentidos cada mañana. Grano seleccionado de altura.
+                    </p>
+                    <!-- Buy Button - Redirects to WhatsApp -->
+                    <button onclick="comprarPorWhatsApp('Café Espresso')" class="w-full bg-coffee-red hover:bg-red-800 text-white font-bold py-3 px-4 rounded shadow-md transition-colors uppercase text-sm tracking-wide">
+                        Ordenar Ahora
+                    </button>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="bg-white rounded-lg p-6 shadow-xl text-center transform transition duration-300 hover:-translate-y-2 border-b-8 border-coffee-brown group">
+                    <div class="h-48 flex justify-center items-center mb-4 relative">
+                        <div class="absolute inset-0 bg-yellow-100 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500"></div>
+                        <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80&w=400" alt="Capuccino Clásico" class="h-40 w-40 object-cover rounded-full shadow-md z-10">
+                    </div>
+                    <h4 class="font-serif font-bold text-xl mb-2 text-coffee-dark">Capuccino Clásico</h4>
+                    <p class="text-xs text-gray-600 mb-6 px-2">
+                        La mezcla perfecta de espresso, leche vaporizada y espuma. Un clásico reconfortante.
+                    </p>
+                    <button onclick="comprarPorWhatsApp('Capuccino Clásico')" class="w-full bg-coffee-red hover:bg-red-800 text-white font-bold py-3 px-4 rounded shadow-md transition-colors uppercase text-sm tracking-wide">
+                        Ordenar Ahora
+                    </button>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="bg-white rounded-lg p-6 shadow-xl text-center transform transition duration-300 hover:-translate-y-2 border-b-8 border-coffee-brown group">
+                    <div class="h-48 flex justify-center items-center mb-4 relative">
+                        <div class="absolute inset-0 bg-yellow-100 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500"></div>
+                        <img src="https://images.unsplash.com/photo-1572442388796-11668a67ef84?auto=format&fit=crop&q=80&w=400" alt="Café Moka" class="h-40 w-40 object-cover rounded-full shadow-md z-10">
+                    </div>
+                    <h4 class="font-serif font-bold text-xl mb-2 text-coffee-dark">Café Moka</h4>
+                    <p class="text-xs text-gray-600 mb-6 px-2">
+                        Para los amantes del chocolate. Espresso con chocolate caliente y espuma de leche dulce.
+                    </p>
+                    <button onclick="comprarPorWhatsApp('Café Moka')" class="w-full bg-coffee-red hover:bg-red-800 text-white font-bold py-3 px-4 rounded shadow-md transition-colors uppercase text-sm tracking-wide">
+                        Ordenar Ahora
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contactar & Footer Section -->
+    <section id="contacto" class="bg-[#302118] text-white pt-16 pb-8 border-t-[12px] border-coffee-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="mb-10">
+                <h3 class="font-serif text-2xl font-bold mb-2">Contact Us</h3>
+                <div class="w-16 h-1 bg-coffee-yellow"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div>
+                    <form class="space-y-4" onsubmit="event.preventDefault(); /* Prevent actual submit for demo */">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <input type="text" placeholder="First Name*" required class="w-full bg-transparent border border-white/30 rounded p-3 text-sm focus:outline-none focus:border-coffee-yellow transition text-white placeholder-gray-400">
+                            <input type="text" placeholder="Last Name*" required class="w-full bg-transparent border border-white/30 rounded p-3 text-sm focus:outline-none focus:border-coffee-yellow transition text-white placeholder-gray-400">
+                        </div>
+                        <input type="email" placeholder="Email Address*" required class="w-full bg-transparent border border-white/30 rounded p-3 text-sm focus:outline-none focus:border-coffee-yellow transition text-white placeholder-gray-400">
+                        <textarea placeholder="Write something here..." rows="4" class="w-full bg-transparent border border-white/30 rounded p-3 text-sm focus:outline-none focus:border-coffee-yellow transition text-white placeholder-gray-400"></textarea>
+                        <button type="submit" class="bg-coffee-yellow text-coffee-dark font-bold py-3 px-8 rounded shadow hover:bg-yellow-500 transition-colors text-sm uppercase">
+                            Submit Email
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Footer Visuals & Links -->
+                <div class="flex flex-col justify-between">
+                    <div class="relative h-48 hidden lg:block rounded-lg overflow-hidden border border-white/10 shadow-lg">
+                        <!-- Image representation of coffee pouring from the design -->
+                        <img src="https://images.unsplash.com/photo-1611162458324-aae1eb4129a4?auto=format&fit=crop&q=80&w=800" alt="Coffee Beans" class="w-full h-full object-cover opacity-60">
+                        <div class="absolute inset-0 bg-gradient-to-r from-[#302118] via-transparent to-transparent"></div>
+                    </div>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 lg:mt-4 text-xs text-gray-400">
+                        <div class="space-y-2">
+                            <p class="text-white font-semibold mb-2">Links</p>
+                            <a href="#inicio" class="block hover:text-coffee-yellow">Inicio</a>
+                            <a href="#nosotros" class="block hover:text-coffee-yellow">Nosotros</a>
+                            <a href="#productos" class="block hover:text-coffee-yellow">Portafolio</a>
+                        </div>
+                        <div class="space-y-2">
+                            <p class="text-white font-semibold mb-2">Service</p>
+                            <a href="#" class="block hover:text-coffee-yellow">Smart</a>
+                            <a href="#" class="block hover:text-coffee-yellow">Inspiration</a>
+                            <a href="#" class="block hover:text-coffee-yellow">Solutions</a>
+                        </div>
+                        <div class="space-y-2">
+                            <p class="text-white font-semibold mb-2">Company</p>
+                            <a href="#" class="block hover:text-coffee-yellow">Service</a>
+                            <a href="#" class="block hover:text-coffee-yellow">Guides</a>
+                            <a href="#" class="block hover:text-coffee-yellow">Blogs</a>
+                        </div>
+                        <div class="space-y-2">
+                            <p class="text-white font-semibold mb-2">Legal</p>
+                            <a href="#" class="block hover:text-coffee-yellow">Mission Statement</a>
+                            <a href="#" class="block hover:text-coffee-yellow">The Team</a>
+                            <a href="#" class="block hover:text-coffee-yellow">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/10 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+                <p>&copy; 2024 Coffee Business. All Rights Reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <span class="text-white">Follow us!</span>
+                    <a href="#" class="hover:text-coffee-yellow transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="hover:text-coffee-yellow transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-coffee-yellow transition"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Funcionalidad del Menú Móvil
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Cerrar el menú móvil al hacer clic en un enlace
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Efecto del Navbar al hacer scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-coffee-yellow', 'shadow-md');
+                navbar.classList.remove('bg-transparent', 'py-2');
+            } else {
+                navbar.classList.remove('bg-coffee-yellow', 'shadow-md');
+                navbar.classList.add('bg-transparent');
+            }
+        });
+
+        // Función Principal: Redirigir a WhatsApp para comprar
+        function comprarPorWhatsApp(nombreProducto) {
+            // Número de WhatsApp proporcionado: 974372574
+            // Asumiendo código de país +51 (Perú) basado en la longitud y contexto.
+            const numeroWhatsApp = "51974372574"; 
+            
+            // Mensaje predeterminado que se enviará
+            const mensaje = `¡Hola! Vengo de su página web y estoy interesado/a en comprar el producto: *${nombreProducto}*. ¿Podrían darme más información?`;
+            
+            // Codificar el mensaje para la URL
+            const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+            
+            // Abrir WhatsApp en una nueva pestaña
+            window.open(urlWhatsApp, '_blank');
+        }
+    </script>
+</body>
+</html>
